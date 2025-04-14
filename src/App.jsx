@@ -29,7 +29,7 @@ function getPreparedGoods(goods, { sortField, reversed }) {
           return good1.localeCompare(good2);
 
         case SORT_BY_LENGTH:
-          return good1[sortField] - good2[sortField];
+          return good1.length - good2.length;
 
         default:
           return 0;
@@ -52,7 +52,7 @@ export const App = () => {
     reversed,
   });
   const isChanged = !visibleGoods.every(
-    (good, i) => good === goodsFromServer[i]
+    (good, i) => good === goodsFromServer[i],
   );
 
   return (
